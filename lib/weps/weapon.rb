@@ -1,23 +1,13 @@
-require_relative 'weapon'
+class Weapon
+  attr_reader :name
 
-class Bow < Weapon
-  attr_reader :arrows
-  
-  def initialize(arrows = 10)
-    super("Bow", 2)
-    @arrows = arrows
+  def initialize(name, multiplier = 1)
+    @name = name
+    @multiplier = multiplier
   end
 
   def use
-    raise "Out of arrows" if out_of_arrows?
-    puts "Shooting arrow!"
-    @arrows -= 1
-    puts "You have #{@arrows} arrows left"
-    super
-  end
-
-  def out_of_arrows?
-    @arrows <= 0
+    @multiplier
   end
 
 end
