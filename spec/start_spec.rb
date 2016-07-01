@@ -21,5 +21,23 @@ describe Warmup do
 		  expect(w.triple_size(fake_array)).to eq(9)
 		end
 	end
+
+	describe '#calls_some_methods' do 
+		let (:string){'hello'}
+
+		it 'calls upcase on a string' do 
+	 	 expect(string).to receive(:upcase!).and_return(string.upcase)
+	  	 w.calls_some_methods(string)
+	  	end
+
+	  	it 'reverse passed string' do
+	  		expect(string).to receive(:reverse!).and_return(string.reverse)
+	  		w.calls_some_methods(string)
+	  	end
+
+	  	it 'returns an unrelated string' do
+	  	  expect(w.calls_some_methods(string)).to_not eq('OLLEH')
+	  	end
+	 end
 end
 
