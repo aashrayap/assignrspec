@@ -1,6 +1,7 @@
-require_relative 'weapons/axe'
-require_relative 'weapons/bow'
-require_relative 'weapons/fists'
+
+require_relative 'weps/bow'
+require_relative 'weps/fists'
+require_relative 'weps/axe'
 
 class Viking
   attr_reader :health, :strength, :name, :weapon
